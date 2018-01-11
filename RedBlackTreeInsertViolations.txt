@@ -1,0 +1,55 @@
+
+insert vialotions:
+
+case 0:
+	vialotion: root -> RED
+
+	solution:  recolor(root)
+
+case 1: parent, child and uncle are RED
+	
+	violation:
+
+	solution: recolor(grandparent)
+			  recolor(parent)
+			  recolor(child)
+
+
+			  g.left=red && g.right=red && g.left.left=red 
+
+case 2: (Rectangle)
+
+	violation:	parent (left) -> RED 	or	 parent(right) -> RED 
+				child  (right) -> RED 		 child (left) -> RED 
+				uncle -> BLACK				 uncle -> BLACK
+
+	solution:	rotateRight(parent) 	or 	 RotateLeft(parent) 
+
+				g.left=red && g.left.right = red 
+
+case 3: (Line)
+
+	violation:
+				parent (left) -> RED	or	parent (right) -> RED
+				child (left) -> RED		    child (right) -> RED
+				uncle -> BLACK				uncle -> BLACK
+
+	solution:
+				rotateRight(grandparent) or rotateLeft(grandparent)
+				recolor(grandpared)
+				recolor(parent)
+
+
+
+ROTATIONS:
+
+ case 1: rectangle
+
+ 	left_rotation(n){
+ 		x = n;
+ 		n = n.right;
+ 		n.left = x;
+ 		x.right = n.left;
+
+
+ 	} 
