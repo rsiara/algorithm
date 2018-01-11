@@ -1,0 +1,2 @@
+# algorithm
+Proste algorytmy
